@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     @article = Post.find(params[:id])
     @article.destroy
 
-    redirect_to post_path
+    redirect_to posts_path
   end
 
   private
