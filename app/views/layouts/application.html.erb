@@ -7,9 +7,33 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+    <![endif]-->
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to '/', id: "logo", class: "navbar-brand" do %>
+          <span class="cookie">🍪</span>
+          cookiegram
+        <% end %>
+
+
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", '/' %></li>
+            <li><%= link_to "Posts", '/posts' %></li>
+            <li><%= link_to "Log in", '/login', class: "btn btn-sm btn-secondary" %></li>
+            <li><%= link_to "Sign up", '/signup', class: "btn btn-sm btn-primary"%></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

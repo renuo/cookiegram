@@ -1,6 +1,14 @@
-<h1>Cookiegram</h1>
-<h3>The best social media platform for sharing your best cookie images!</h3>
 
-<%= link_to 'View all posts', controller: 'posts' %>
-<%= link_to 'New post', new_post_path %>
-<%= link_to "Sign up now!", signup_path %>
+<blockquote>The best social media platform for sharing your best cookie images!</blockquote>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.description %></td>
+    <td><%= post.image %></td>
+    <td><%= link_to 'Show', post_path(post) %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post_path(post),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
