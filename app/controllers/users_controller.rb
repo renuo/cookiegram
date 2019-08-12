@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
     @user.description = "I love cookies!"
     @user.image = "https://awesomepicture.com"
     if @user.save
+      log_in @user
       redirect_to @user
     else
       render 'new'
@@ -43,4 +45,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
+
 end

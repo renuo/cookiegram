@@ -14,29 +14,31 @@
   </head>
 
   <body>
-	<% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
-    <%= yield %>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
         <%= link_to '/', id: "logo", class: "navbar-brand" do %>
           <span class="cookie">🍪</span>
           cookiegram
         <% end %>
-
-
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", '/' %></li>
             <li><%= link_to "Posts", '/posts' %></li>
-            <li><%= link_to "Log in", '/login', class: "btn btn-sm btn-secondary" %></li>
-            <li><%= link_to "Sign up", '/signup', class: "btn btn-sm btn-primary"%></li>
+            <% if is_logged_in? %>
+              <li><%= link_to "Log out", logout_path, class: "btn btn-sm btn-secondary", method: :delete %></li>
+              <li><%= link_to "Account", @current_user, class: "btn btn-sm btn-primary"%></li>
+            <% else %>
+              <li><%= link_to "Log in", '/login', class: "btn btn-sm btn-secondary" %></li>
+              <li><%= link_to "Sign up", '/signup', class: "btn btn-sm btn-primary"%></li>
+            <% end %>
           </ul>
         </nav>
       </div>
     </header>
     <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
       <%= yield %>
     </div>
   </body>
