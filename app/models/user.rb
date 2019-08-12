@@ -19,9 +19,9 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false },
             format: { with: VALID_USERNAME_REGEX },
             length: { minimum: 3, maximum: 50 }
-  validates :password, presence: true,
-            length: { minimum: 8, maximum: 255 }
   validates :image, presence: true,
             length: { minimum: 3 }
+
+  has_secure_password
 
 end
