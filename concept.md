@@ -38,7 +38,3 @@ Comment
 Use 'device' for login
 Maybe consider 'AWS s3'
 Use 'carrierwave' as image form handler
-
-rails generate model Post description:text image:string
-rails generate model User email:string username:string password:string description:text
-rails generate model User email:string username:string password:string description:text
