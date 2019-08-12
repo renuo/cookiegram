@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get  '/signup',  to: 'users#new'
 
-  resource :users
+  resources :users
 
   resources :posts do
     resources :comments
