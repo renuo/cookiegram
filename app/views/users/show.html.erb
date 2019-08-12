@@ -1,3 +1,26 @@
 
-<h2>User profile</h2>
+<% if is_logged_in? %>
+  <h2>User profile</h2>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <table class="table">
 
+          <tr>
+            <th>Username</th>
+            <td><%= @current_user.username%></td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td><%= @current_user.email %></td>
+          </tr>
+          <tr>
+            <th>Joined</th>
+            <td><%= @current_user.created_at %></td>
+          </tr>
+      </table>
+
+    </div>
+  </div>
+<% else %>
+  <h2>You are not logged in! Login first to see the content of this page.</h2>
+<% end %>
