@@ -1,25 +1,5 @@
-<h1>Listing posts</h1>
+<h2>List of posts</h2>
 
-<table>
-  <tr>
-    <th>Description</th>
-    <th>Image</th>
-
-    <th></th>
-  </tr>
-
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.description %></td>
-      <td><%= post.image %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post_path(post),
-                      method: :delete,
-                      data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-
-
-  <%= link_to "New post", new_post_path %>
-</table>
+<% @posts.each do |post| %>
+  <%= render 'posts/post', post: post %>
+<% end %>
