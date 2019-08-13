@@ -1,20 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "colors";
 
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,500,700&display=swap');
-
-$milk: #FEFEFE;
-$cookies-and-cream : #efd1a4;
-$cookie: #BD8C61;
-$milk-chocolate : #84563C;
-$caput-mortuum : #5A2C22;
-$root-beer : #270D0B;
 
 body {
   padding-top: 60px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: auto;
   font-family: 'Red Hat Text', sans-serif;
+  background-color: $milk;
 }
 
 section {

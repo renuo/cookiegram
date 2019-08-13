@@ -14,18 +14,18 @@
     </div>
   <% end %>
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form.label :description %>
+        <%= form.text_area :description, class: 'form-control' %>
 
-  <p>
-    <%= form.label :image %><br>
-    <%= form.text_field :image %>
-  </p>
+        <%= form.label :image %>
+        <%= form.text_field :image, class: 'form-control' %>
 
-  <p>
-    <%= form.submit %>
-  </p>
+        <%= form.submit "Add post", class: "btn btn-primary" %>
+      <hr>
+      <%= link_to 'Back', posts_path %>
+    </div>
+  </div>
 
 <% end %>

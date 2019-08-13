@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  include SessionsHelper
+
   def new
     @post = Post.new
   end
@@ -6,7 +8,6 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
-
 
   def index
     @posts = Post.all
@@ -18,7 +19,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
     if @post.save
       redirect_to @post
     else
@@ -39,12 +39,17 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-
     redirect_to posts_path
   end
 
   private
   def post_params
-    params.require(:post).permit(:description, :image)
+    if is_logged_in?
+      {
+        description: params[:post][:description],
+        image: params[:post][:image],
+        user: @current_user
+      }
+    end
   end
 end
