@@ -1,14 +1,20 @@
 
-<div class="post container">
-  <div class="col-md-6 col-md-offset-3">
+<div class="post-wrapper row">
+  <div class="post col-md-6 col-md-offset-3">
     <img class="post-image" alt="Cookie" src="<%= post.image %>"/>
-    <p class="post-description"><%= post.description %></p>
-    <% if post.user == @current_user %>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post_path(post),
-                      method: :delete,
-                      data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
+    <div class="post-content">
+      <div class="post-content-header">
+        <p>0 cookies</p>
+        <p>Posted by <%= link_to post.user.username, post.user %></p>
+      </div>
+      <p class="post-description"><%= post.description %></p>
+      <% if post.user == @current_user %>
+        <td><%= link_to 'Show', post_path(post) %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post_path(post),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </div>
   </div>
 </div>

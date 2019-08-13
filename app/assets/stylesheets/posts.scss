@@ -5,15 +5,25 @@
 @import "colors";
 
 .post {
+  overflow: hidden;
   background-color: white;
   border-radius: 5px;
-
+  padding: 0;
 }
 
 .post-image {
-
+  max-width: 100%;
 }
 
-.post-description {
+.post-content {
+  padding: 16px 32px;
 
+  .post-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid $milk;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
 }
