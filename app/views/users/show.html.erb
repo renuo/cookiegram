@@ -19,6 +19,9 @@
       </table>
     </div>
   </div>
+  <% @user.posts.each do |post| %>
+    <%= render 'posts/post', post: post %>
+  <% end %>
 <% else %>
   <h2>You are not logged in! Login first to see the content of this page.</h2>
 <% end %>
