@@ -1,14 +1,5 @@
 
 <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
-  <p>
-<!--    <%#= form.label :user %><br>-->
-    <%#= form.text_field :user %>
-  </p>
-  <p>
-    <%= form.label :message %><br>
-    <%= form.text_area :message %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+  <%= form.text_area :message, placeholder: 'Message', class: "form-control" %>
+  <%= form.submit "Add comment", class: "btn btn-primary" %>
 <% end %>

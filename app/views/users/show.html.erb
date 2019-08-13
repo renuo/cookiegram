@@ -1,27 +1,27 @@
-
 <% if is_logged_in? %>
   <h2>User profile</h2>
   <div class="row">
-    <div class="col-md-1 col-md-offset-2">
-            <%= gravatar_for(@current_user) %>
-          </div>
-          <div class="col-md-6">
-            <table class="table">
-              <tr>
-                <th>Username</th>
-                <td><%= @current_user.username%></td>
-              </tr>
-              <tr>
-                <th>Email</th>
-                <td><%= @current_user.email %></td>
-              </tr>
-              <tr>
-                <th>Joined</th>
-                <td><%= @current_user.created_at %></td>
-              </tr>
-            </table>
-          </div>
-    
+    <div class="col-md-1 col-md-offset-3">
+      <%= gravatar_for(@current_user) %>
+    </div>
+    <div class="col-md-5">
+      <table class="table">
+        <tr>
+          <th>Username</th>
+          <td><%= @current_user.username %></td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td><%= @current_user.email %></td>
+        </tr>
+        <tr>
+          <th>Joined</th>
+          <td><%= @current_user.created_at %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
   <h2>Your posts</h2>
   <% @user.posts.each do |post| %>
     <%= render 'posts/post', post: post %>

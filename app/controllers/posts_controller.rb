@@ -15,6 +15,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    puts "Hey"
+    puts @post.comments.size
   end
 
   def create
