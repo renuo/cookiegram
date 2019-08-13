@@ -82,33 +82,6 @@ a {
   font-weight: 500;
 }
 
-blockquote {
-  font-size: 18px;
-  quotes: "\201C""\201D""\2018""\2019";
-  padding: 10px 20px;
-  text-align: center;
-  border: none;
-}
-
-blockquote:before {
-  content: open-quote;
-  display: inline;
-  height: 0;
-  line-height: 0;
-  left: -10px;
-  position: relative;
-  top: 30px;
-  color: #ccc;
-  font-size: 3em;
-}
-blockquote::after {
-  content: close-quote;
-  display: inline;
-  height: 0;
-  line-height: 0;
-  left: 10px;
-  position: relative;
-  top: 35px;
-  color: #ccc;
-  font-size: 3em;
+.gravatar {
+  border-radius: 50%;
 }
