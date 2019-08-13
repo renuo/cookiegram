@@ -49,18 +49,19 @@ p {
 
 a {
   text-decoration: none;
+  font-weight: 500;
 }
 
 .btn {
   margin: 8px 4px;
   padding: 6px 12px!important;
-  //height:20px !important;
-  border: 2px solid $milk;
+  border: 2px solid $milk-chocolate;
   font-weight: 500;
 
   &.btn-primary {
     background-color: $milk-chocolate;
     border-color: $milk-chocolate;
+    color: $cookies-and-cream!important;
   }
 }
 
@@ -72,7 +73,7 @@ a {
   max-height: 50px;
 
   a {
-    color: $milk!important;
+    color: $milk-chocolate!important;
     font-size: 1.1em;
   }
 }

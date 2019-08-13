@@ -1,7 +1,7 @@
 
 <div class="post-wrapper row">
   <div class="post col-md-6 col-md-offset-3">
-    <img class="post-image" alt="Cookie" src="<%= post.image %>"/>
+    <%= link_to image_tag(post.image, class: 'post-image', alt: 'Cookie'), post %>
     <div class="post-content">
       <div class="post-content-header">
         <p>0 cookies</p>

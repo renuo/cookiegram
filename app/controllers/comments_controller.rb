@@ -1,14 +1,23 @@
 class CommentsController < ApplicationController
+  include SessionsHelper
 
   def create
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params)
-    redirect_to post_path(@post)
-  end
+    if is_logged_in?
+      @post = Post.find(params[:post_id])
+      @comment = Comment.new({
+          post: @post,
+          message: params[:comment][:message],
+          user: @current_user
+      })
 
-  private
-  def comment_params
-    params.require(:comment).permit(:user, :message)
+      if @comment.save
+        redirect_to @post
+      else
+        render 'new'
+      end
+    else
+      render 'new'
+    end
   end
 
 end
